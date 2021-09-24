@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-Slides</title>
+<style>
+    *{
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+    }
+
+    h1 {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .slide-container {
+        width: 1000px;
+        position: relative;
+        margin: auto;
+        
+    }
+
+    /* .slide{
+        display: none;
+    } */
+
+    img {
+        width: 100%;
+    }
+
+    .text{
+        font-size: 40px;
+        color: rgb(201, 61, 61);
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .dots{
+        text-align: center;
+    }
+
+    .dot{
+        cursor: pointer;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        display: inline-block;
+        background-color: rgb(134, 124, 124);
+        transition: background-color 0.6 ease;
+    }
+
+    .active, .dot:hover {
+        background-color: rgb(49, 41, 41);
+    }
+
+    .fade{
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+        from{opacity: .5;}
+        to{opacity: 1;}
+    }
+</style>
+</head>
+<body>
+    <h1>Automatic-Slides</h1>
+    <div class="slide-container">
+        <div class="slide fade">
+            <img src="https://www.w3schools.com/howto/img_snow_wide.jpg" alt="snow">
+            <div class="text">snow</div>
+        </div>
+        <div class="slide fade">
+            <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" alt="nature">
+            <div class="text">nature</div>
+        </div>
+        <div class="slide fade">
+            <img src="https://www.w3schools.com/howto/img_mountains_wide.jpg" alt="mountain">
+            <div class="text">mountain</div>
+        </div>
+        <div class="slide fade">
+            <img src="https://www.w3schools.com/howto/img_band_chicago.jpg" alt="band">
+            <div class="text">band</div>
+        </div>
+        <div class="slide fade">
+            <img src="https://www.w3schools.com/howto/img_band_ny.jpg" alt="concert">
+            <div class="text">concert</div>
+        </div>
+    </div>
+
+    <div class="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+
+        function showSlides () {
+            let i;
+            let slides = document.getElementsByClassName('slide')
+            let dots = document.getElementsByClassName('dot')
+
+            for (i=0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            for (i=0; i < slides.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "")
+            }
+
+            slides[slideIndex-1].style.display = 'block'
+            dots[slideIndex-1].className += " active"
+            setTimeout(showSlides, 3000)
+        }
+
+        showSlides();
+
+    </script>
+</body>
+</html>

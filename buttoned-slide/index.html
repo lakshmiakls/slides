@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttoned-Slides</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Buttoned-Slides</h1>
+
+    <div class="slide-container">
+        <div class="slide fade">
+            <img src="https://www.w3schools.com/howto/img_snow_wide.jpg" alt="snow">
+            <div class="text">snow</div>
+        </div>
+        <div class="slide fade">
+            <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" alt="nature">
+            <div class="text">nature</div>
+        </div>
+        <div class="slide fade">
+            <img src="https://www.w3schools.com/howto/img_mountains_wide.jpg" alt="mountains">
+            <div class="text">mountains</div>
+        </div>
+
+        <div class="prev" onclick="plusSlides(-1)">&#10094;</div>
+        <div class="next" onclick="plusSlides(1)">&#10095;</div>
+        
+    </div>
+
+        <div class="dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+        
+        <script src="script.js"></script>
+</body>
+</html>
